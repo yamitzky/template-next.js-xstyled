@@ -6,17 +6,51 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint && tsc --noEmit",
+    "postinstall": "patch-package && husky install"
   },
   "dependencies": {
-    "next": "11.1.0",
-    "react": "17.0.2",
-    "react-dom": "17.0.2"
+    "@emotion/react": "^11.4.1",
+    "@emotion/styled": "^11.3.0",
+    "@xstyled/emotion": "^3.0.2",
+    "@xstyled/system": "^3.0.2",
+    "next": "^11.1.0",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
   },
   "devDependencies": {
-    "@types/react": "17.0.19",
-    "eslint": "7.32.0",
-    "eslint-config-next": "11.1.0",
-    "typescript": "4.4.2"
+    "@types/react": "^17.0.19",
+    "@types/terser-webpack-plugin": "^5.0.4",
+    "typescript": "^4.4.2"
+  },
+  "optionalDependencies": {
+    "@typescript-eslint/eslint-plugin": "^4.29.3",
+    "eslint": "^7.32.0",
+    "eslint-config-next": "^11.1.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-config-standard-with-typescript": "^20.0.0",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^5.1.0",
+    "husky": "^7.0.2",
+    "lint-staged": "^11.1.2",
+    "patch-package": "^6.4.7",
+    "postinstall-postinstall": "^2.1.0",
+    "prettier": "^2.3.2"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "src/**/*.{ts,tsx}": [
+      "eslint --fix --no-ignore",
+      "prettier --write",
+      "git add"
+    ],
+    "**/*.{json,yml,yaml,html}": [
+      "prettier --write",
+      "git add"
+    ]
   }
 }
