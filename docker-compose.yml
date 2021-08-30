@@ -1,0 +1,17 @@
+services:
+  web:
+    build:
+      context: .
+      target: build-env
+    command: yarn dev
+    ports:
+      - '3000:3000'
+    volumes:
+      - ./package.json:/app/package.json
+      - ./yarn.lock:/app/yarn.lock
+      - ./next-env.d.ts:/app/next-env.d.ts
+      - ./next.config.js:/app/next.config.js
+      - ./tsconfig.json:/app/tsconfig.json
+      - ./public:/app/public
+      - ./src:/app/src
+
