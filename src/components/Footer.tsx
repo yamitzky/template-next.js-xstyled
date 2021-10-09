@@ -9,7 +9,7 @@ export const Footer: React.VFC<SystemProps> = (props) => {
         target="_blank"
         rel="noopener noreferrer"
         color="primary"
-        bg={{ hover: 'white', hove: 'red' }}
+        bg={{ hover: 'white' }}
         ringColor="primary"
       >
         Powered by{' '}
