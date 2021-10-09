@@ -8,11 +8,12 @@ import { x } from '@xstyled/emotion'
 const Home: NextPage = () => {
   return (
     <x.div
-      // 🚫 must not be type error
+      // ✅ must not be type error as expected
       py={4}
       opacity={{
+        // 🚫 auto completion does not work
         hover: 0.7,
-        // ✅ must be type error as expected
+        // 🚫 must be type error
         hove: 'typo',
       }}
     >
